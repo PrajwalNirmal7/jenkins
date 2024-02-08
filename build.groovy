@@ -23,7 +23,7 @@ pipeline {
             steps {
             sh '''
             echo "CFT Run"
-            cd /home/ubuntu/workspace/project-1
+            cd /home/ubuntu/workspace/cloudpipeline
             aws cloudformation create-stack --stack-name mystacknew --template-body file:///home/ubuntu/workspace/cloudpipeline/cloudformation.yaml --region us-east-1
             '''
             }
