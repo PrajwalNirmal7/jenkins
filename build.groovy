@@ -3,7 +3,7 @@ pipeline {
         label 'node' 
         }
     stages {
-        stage('Clonig the Git Repository') {
+        stage('Cloning the Git Repository') {
             steps {
                 echo 'clone repositery consist of build packages'
                 git branch: 'main', url: 'https://github.com/PrajwalNirmal7/jenkins.git'
