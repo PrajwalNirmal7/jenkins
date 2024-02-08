@@ -6,7 +6,7 @@ pipeline {
         stage('Clonig the Git Repository') {
             steps {
                 echo 'clone repositery consist of build packages'
-                git branch: 'main', url: 'https://github.com/Shoaibraj/CFT-cloudformation.git'
+                git branch: 'main', url: 'https://github.com/PrajwalNirmal7/jenkins.git'
                   }
              }
         stage('Installation of Aws Cli') {
