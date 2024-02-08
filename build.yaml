@@ -1,15 +1,15 @@
 pipeline {
     agent { 
-        label 'node1' 
+        label 'node' 
         }
     stages {
-        stage('git clone') {
+        stage('Clonnig the Git Repository') {
             steps {
                 echo 'clone repositery consist of build packages'
                 git branch: 'main', url: 'https://github.com/Shoaibraj/CFT-cloudformation.git'
                   }
              }
-        stage('aws cli installation') {
+        stage('Installation of Aws Cli') {
             steps {
                 sh '''
                 echo "installing aws cli"
@@ -18,14 +18,7 @@ pipeline {
                 '''
             }
         }     
-        stage('cloudformation stack') {
-            steps {
-                sh '''
-                cd /home/ubuntu/workspace/project-1
-                '''
-            }
-        }
-        stage('CFT Running on cloud') 
+        stage('CloudFormation On Cloud') 
         {
             steps {
             sh '''
