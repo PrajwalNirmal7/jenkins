@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Create VPC, Subnet, EC2 Instance, Security Group, Internet Gateway, and Route Table
+Description: 'Create VPC, Subnet, EC2 Instance, Security Group, Internet Gateway, and Route Table'
 
 Parameters:
   VpcCIDRBlock:
@@ -14,6 +14,7 @@ Parameters:
 
   KeyPairName:
     Type: String
+    Default: "classic"
     Description: Name of an existing EC2 KeyPair to enable SSH access to the EC2 instance
 
 Resources:
@@ -32,7 +33,7 @@ Resources:
   MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Allow SSH and HTTP traffic
+      GroupDescription: Allow SSH, HTTP, and Custom port 8080 traffic
       VpcId: !Ref MyVPC
       SecurityGroupIngress:
         - IpProtocol: tcp
@@ -43,6 +44,13 @@ Resources:
           FromPort: 80
           ToPort: 80
           CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8080
+          ToPort: 8080
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: MySecurityGroup
 
   MyInternetGateway:
     Type: AWS::EC2::InternetGateway
