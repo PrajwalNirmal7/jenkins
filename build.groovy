@@ -3,7 +3,7 @@ pipeline {
         label 'node' 
         }
     stages {
-        stage('Clonnig the Git Repository') {
+        stage('Clonig the Git Repository') {
             steps {
                 echo 'clone repositery consist of build packages'
                 git branch: 'main', url: 'https://github.com/Shoaibraj/CFT-cloudformation.git'
